@@ -7,7 +7,7 @@ This an app that is focused on making a clean portfolio for an upcoming artist.
 
 It stores links to music that the artist has posted over the internet.
 
-## How it works.
+## How it works
 
 
 The home page is where the music videos and audios are shown to the public.
