@@ -1,6 +1,15 @@
+
 .navbar-logo{
     width: auto;
-    height: 4rem;
-    margin-top: -5px;
-    margin-bottom: -5px;
+    height: 4.2rem;
+    margin-top: -1rem;
+    margin-bottom: -1rem;
+}
+.nav-link{
+    margin-left: 5rem;
+}
+.nav-link:hover{
+    text-decoration: underline;
+    text-decoration-color: grey;
+    text-decoration-thickness:5px;
 }
