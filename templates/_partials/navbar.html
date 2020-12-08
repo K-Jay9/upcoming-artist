@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-md sticky-top navbar-dark bg-dark">
+    <div class="container-fluid">
+        <!-- navbar image -->
+      <img class="navbar-logo rounded-circle" src="{{ url_for('static', filename='romoz.jpg')}}">
+
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- actual navbar -->
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link " aria-current="page" href="{{ url_for('index') }}">Home</a>
+          <a class="nav-link" href="{{ url_for('index') }}">Videos</a>
+          <a class="nav-link" href="{{ url_for('index') }}">Audio</a>
+        </div>
+      </div>
+    </div>
+  </nav>
