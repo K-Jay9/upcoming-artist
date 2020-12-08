@@ -2,8 +2,9 @@
 .navbar-logo{
     width: auto;
     height: 4.2rem;
-    margin-top: -1rem;
-    margin-bottom: -1rem;
+}
+.logo{
+    margin-left: 4rem;
 }
 .nav-link{
     margin-left: 5rem;
