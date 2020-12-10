@@ -63,6 +63,7 @@ def index():
     aud = []
     vid = []
     for i in res:
+        print(i)
         out = video_or_audio(i[1])
         if out == 'video' and out != None:
             vid.append(i[1])
@@ -78,10 +79,13 @@ def add():
     if request.method == 'POST':
         try:
             link = request.form['link']
-            query = "({}) ".format(link)
+            query = ''';
+            '''
             with sqlite3.connect(DATABASE) as con:
                 cur = con.cursor()
-                cur.execute('INSERT INTO links(link) VALUES(?)',(link))        
+                print(query)
+                cur.execute("INSERT INTO links(link, artist) VALUES(?, ?)", (link, 'djromoz'))
+
                 con.commit()
                 msg = "Record successfully added"
         except:
