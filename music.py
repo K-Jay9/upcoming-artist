@@ -2,7 +2,7 @@
 The required docstring
 '''
 import sqlite3
-from flask import Flask, render_template, g
+from flask import Flask, render_template, g, request
 
 app = Flask(__name__)
 
@@ -57,55 +57,56 @@ def index():
     res = get_db()
     aud = []
     vid = []
-    for i in res:
-        out = video_or_audio(i)
-        if out == YOUTUBE and out != None:
-            vid.append(a)
-        elif out == MIXCLOUD and out != None:
-            aud.append(a)
-    return render_template('index.html', title='Romoz', audios=aud, videos=vid)
+    # for i in res:
+    #     out = video_or_audio(i)
+    #     if out == YOUTUBE and out != None:
+    #         vid.append(a)
+    #     elif out == MIXCLOUD and out != None:
+    #         aud.append(a)
+    return render_template('index.html', title='Romoz', res=res)
 
-@app.route('/admin', methods= ['POST','GET'])
+@app.route('/admin/add')
+def add():
+    msg= 'nthing'
+    try:
+        link = request.form['link']
+        with sql.connect(DATABASE) as con:
+            cur = con.cursor()
+            cur.execute("INSERT INTO links link VALUES ? ",link )
+            
+            con.commit()
+            msg = "Record successfully added"
+    except:
+        con.rollback()
+        msg = "error in insert operation"
+    
+    finally:
+        return render_template("admin.html",msg = msg, title='Admin')
+        close_connection()
+@app.route('/admin')
 def admin():
-    if request.method == 'POST':
-        try:
-            link = request.form['link']
-            with sql.connect(DATABASE) as con:
-                cur = con.cursor()
-                cur.execute("INSERT INTO links link VALUES ? ",link )
-                
-                con.commit()
-                msg = "Record successfully added"
-        except:
-            con.rollback()
-            msg = "error in insert operation"
-        
-        finally:
-            return render_template("admin.html",msg = msg, title='Admin')
-            close_connection()
-    else:
-        rows = get_db()
-        return render_template("admin.html",rows = rows, title='Admin')
+    rows = get_db()
+    return render_template("admin.html",rows=rows,title='Admin')
 
 
 @app.route('/videos')
 def video():
     res = get_db()
     videos = []
-    for i in res:
-        out = video_or_audio(i)
-        if out == YOUTUBE:
-            videos.append(out)
+    # for i in res:
+    #     out = video_or_audio(i)
+    #     if out == YOUTUBE:
+    #         videos.append(out)
     return render_template('videos.html', title='Videos', videos=videos)
 
 @app.route('/audios')
 def audio():
     res = get_db()
     audios = []
-    for i in res:
-        out = video_or_audio(i)
-        if out == MIXCLOUD and out != None:
-            audios.append(out)
+    # for i in res:
+    #     out = video_or_audio(i)
+    #     if out == MIXCLOUD and out != None:
+    #         audios.append(out)
     return render_template('audios.html', title='Audios', audios=audios)
 
 

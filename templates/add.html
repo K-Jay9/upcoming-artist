@@ -1,0 +1,10 @@
+{% include "base.html" %}
+<!-- The form -->
+
+<div class="container form">
+    <form action = "{{ url_for('add') }}" method = "POST">
+        <input placeholder='Enter link' type = "text" name = "link" id='text'/>
+        <button type="submit" class="btn-success" value="submit"><i class="fa fa-plus"></i></button>
+     </form>
+     <br>
+</div>
