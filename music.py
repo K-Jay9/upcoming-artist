@@ -70,6 +70,8 @@ def index():
             aud.append(i[1])
     return render_template('index.html', title='Romoz', aud=aud, vid=vid)
 
+
+# the only function that doesn't work
 @app.route('/admin/add', methods=['POST', 'GET'])
 def add():
     msg= 'nthing'
