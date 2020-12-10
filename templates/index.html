@@ -1,10 +1,24 @@
 {% include "base.html" %}
 
 <!-- The videos section -->
-<div class="videos">
-    {% for audio in aud  %}
+<div class="audio">
+  <ol>
+  {% for audio in audios  %}
+    <li>
       {{audio}}
+    </li>
     {% endfor %}
+  </ol>
+</div>
+
+<div class="videos">
+  <ol>
+  {% for vid in videos  %}
+      <li>
+        {{vid}}
+      </li>
+  {% endfor %}
+  </ol>  
 </div>
 <div>
     {{msg}}

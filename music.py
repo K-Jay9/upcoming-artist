@@ -52,24 +52,38 @@ def initdb_command():
     init_db()
     print('Initialised the database...')
 
+
+audios = []
+videos = []
+
+#  The function that decides whether the link is a video or an audio
+
+def video_or_audio(d):
+    if d[:len(YOUTUBE)] == YOUTUBE:
+        return 'video'
+    elif d[:len(MIXCLOUD)] == MIXCLOUD:
+        return 'audio'
+    return None
+
+
+def decide():
+    res = get_data()
+    for i in res:
+        out = video_or_audio(i[1])
+        if out == 'audio' and out != None:
+            audios.append(i[1])
+        elif out == 'video' and out != None:
+            videos.append(i[1])
+    return
 '''
 The actual app
 '''
+decide()
 
 # The home route of the project
 @app.route('/')
 def index():
-    res = get_data()
-    aud = []
-    vid = []
-    for i in res:
-        print(i)
-        out = video_or_audio(i[1])
-        if out == 'video' and out != None:
-            vid.append(i[1])
-        elif out == 'audio' and out != None:
-            aud.append(i[1])
-    return render_template('index.html', title='Romoz', aud=aud, vid=vid)
+    return render_template('index.html', title='Romoz', audios=audios, videos=videos)
 
 
 # the only function that doesn't work
@@ -106,30 +120,11 @@ def admin():
 
 @app.route('/videos')
 def video():
-    res = get_data()
-    videos = []
-    for i in res:
-        out = video_or_audio(i[1])
-        if out == 'video':
-            videos.append(i[1])
     return render_template('videos.html', title='Videos', videos=videos)
 
 @app.route('/audios')
 def audio():
-    res = get_data()
-    audios = []
-    for i in res:
-        out = video_or_audio(i[1])
-        if out == 'audio' and out != None:
-            audios.append(i[1])
     return render_template('audios.html', title='Audios', audios=audios)
 
 
-#  The function that decides whether the link is a video or an audio
 
-def video_or_audio(d):
-    if d[:len(YOUTUBE)] == YOUTUBE:
-        return 'video'
-    elif d[:len(MIXCLOUD)] == MIXCLOUD:
-        return 'audio'
-    return None
