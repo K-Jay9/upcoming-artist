@@ -2,6 +2,11 @@
 
 <!-- The videos section -->
 <div class="videos">
-    {{res}}
+    {% for audio in aud  %}
+      {{audio}}
+    {% endfor %}
+</div>
+<div>
+    {{msg}}
 </div>
 <!-- The audios section -->

@@ -4,10 +4,15 @@
 
 <div class="container db">
     <h4 class="center">Links</h4> 
+    {% for link in rows  %}
         <div class="card" style="width: 18rem;">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">{{rows}}</li>
+                <li class="list-group-item">
+                    
+                  {{link[1]}}
+                </li>
             </ul>
         </div>
+    {% endfor %}
 </div>
 <!-- The whole admin section -->
