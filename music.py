@@ -78,13 +78,12 @@ def add():
     if request.method == 'POST':
         try:
             link = request.form['link']
-            with sql.connect(DATABASE) as con:
+            query = "({}) ".format(link)
+            with sqlite3.connect(DATABASE) as con:
                 cur = con.cursor()
-                cur.execute("INSERT INTO links link VALUES ? ",link )
-                
+                cur.execute('INSERT INTO links(link) VALUES(?)',(link))        
                 con.commit()
                 msg = "Record successfully added"
-                print(msg)
         except:
             con.rollback()
             msg = "error in insert operation"
@@ -93,7 +92,6 @@ def add():
             return render_template("add.html",msg = msg, title='Add')
             close_connection()
     else:
-        print(msg)
         return render_template('add.html', msg=msg, title='Add')
 
 @app.route('/admin')

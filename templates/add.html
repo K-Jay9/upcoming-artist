@@ -1,6 +1,7 @@
-{% include "base.html" %}
+{% extends "base.html" %}
 <!-- The form -->
-
+{% block content %}
+  
 <div class="container form">
     <form action = "{{ url_for('add') }}" method = "POST" onsubmit="onSubmit()">
         <input placeholder='Enter link' type = "text" name="link" id='text'/>
@@ -10,5 +11,5 @@
      </form>
      <br>
 
-     {{msg}}
-</div>
+    </div>
+{% endblock content %}

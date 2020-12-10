@@ -1,7 +1,7 @@
-{% include "base.html" %}
+{% extends "base.html" %}
 
-
-
+{% block content %}
+  
 <div class="container db">
     <h4 class="center">Links</h4> 
     {% for link in rows  %}
@@ -16,3 +16,4 @@
     {% endfor %}
 </div>
 <!-- The whole admin section -->
+{% endblock content %}
