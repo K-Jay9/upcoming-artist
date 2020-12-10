@@ -3,8 +3,12 @@
 {% block content %}
   
 <div class="audio">
+    <ol>
     {% for audio in audios  %}
-      {{audio}}
-    {% endfor %}
+      <li>
+        {{audio}}
+      </li>
+      {% endfor %}
+    </ol>
 </div>
 {% endblock content %}

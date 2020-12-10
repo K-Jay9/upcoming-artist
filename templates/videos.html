@@ -3,8 +3,12 @@
 {% block content %}
   
 <div class="video">
+  <ol> 
     {% for vid in videos  %}
-      {{vid}}
-    {% endfor %}
+        <li>
+          {{vid}}
+      </li> 
+      {% endfor %}
+    </ol>
 </div>
 {% endblock content %}
