@@ -1,45 +1,29 @@
-/* The navbar */
-
-.navbar-logo{
-    width: auto;
-    height: 4.2rem;
+body{
+    display : flex;
+    flex-direction: column;
+    min-height: 100vh;
+    flex-wrap : wrap;
+    margin: 0;
 }
-.logo{
-    margin-left: 4rem;
+
+.navbar-nav{
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    margin:0 auto;
+    
 }
 .nav-link{
-    margin-left: 5rem;
+    padding-left: 5rem !important;
 }
 .nav-link:hover{
     text-decoration: underline;
     text-decoration-color: grey;
-    text-decoration-thickness:5px;
+    text-decoration-thickness: 4px;
 }
-/* End of The navbar */
-
-
-/* The whole body of the content */
-
-/* End of The whole body of the content */
-
-
-/* The admin submit part */
-.form{
-    padding: 2rem;  
-    display:flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-}
-
-form #text{
-    border-radius: 5%;
-}
-
-.db{
+.whole{
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
+    flex-direction: column;
     align-content: center;
 }
-/* End of The admin submit part */

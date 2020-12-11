@@ -1,26 +1,30 @@
-{% include "base.html" %}
+{% extends "base.html" %}
 
-<!-- The videos section -->
-<div class="audio">
-  <ol>
-  {% for audio in audios  %}
-    <li>
-      {{audio}}
-    </li>
-    {% endfor %}
-  </ol>
-</div>
 
-<div class="videos">
-  <ol>
-  {% for vid in videos  %}
+{% block content %}
+  
+  <!-- The audios section -->
+  <div class="audio">
+    <ol>
+    {% for audio in audios  %}
       <li>
-        {{vid}}
+        {{audio}}
       </li>
-  {% endfor %}
-  </ol>  
-</div>
-<div>
-    {{msg}}
-</div>
-<!-- The audios section -->
+      {% endfor %}
+    </ol>
+  </div>
+  <!-- The videos section -->
+
+  <div class="video">
+    <ol>
+    {% for vid in videos  %}
+        <li>
+          {{vid}}
+        </li>
+    {% endfor %}
+    </ol>  
+  </div>
+  <div>
+      {{msg}}
+  </div>
+{% endblock content %}
