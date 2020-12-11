@@ -4,6 +4,7 @@ body{
     min-height: 100vh;
     flex-wrap : wrap;
     margin: 0;
+    width: auto;
 }
 .logo{
     padding-left: 20rem;

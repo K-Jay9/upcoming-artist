@@ -100,8 +100,7 @@ The actual app
 # The home route of the project
 @app.route('/')
 def index():
-    print(videos)
-    return render_template('index.html', title='Romoz')
+    return render_template('index.html', title='Romoz', videos=videos[:4], audios=audios[:4])
 
 
 # the only function that doesn't work

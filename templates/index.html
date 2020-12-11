@@ -2,8 +2,29 @@
 
 
 {% block content %}
-  
-  <div>
-      {{msg}}
-  </div>
+
+  <!-- The audios section -->
+  <h1>The audios he has on mixcloud!</h1>
+  <div class="container con ">
+    {% for audio in audios  %}
+        <div class="audios">
+
+            {% for user, aud in audio.items()  %}
+              <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2F{{user}}%2F{{aud}}%2F" frameborder="0" ></iframe>
+            {% endfor %}
+        </div>
+      {% endfor %}
+</div>
+
+
+  <!-- The videos section -->
+  <h1>Music he has produced on Youtube</h1>
+  <div class="container con ">
+    {% for vid in videos  %}
+        <div class="videos">
+            <iframe width="500" height="250" src="https://www.youtube.com/embed/{{vid}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      {% endfor %}
+</div>
+
 {% endblock content %}
