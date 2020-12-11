@@ -56,6 +56,7 @@ def initdb_command():
 audios = []
 videos = []
 result = []
+minor = []
 
 
 #  The function that decides whether the link is a video or an audio
@@ -75,7 +76,7 @@ def decide():
         if out == 'audio' and out != None:
             result.append(i[1])
         elif out == 'video' and out != None:
-            videos.append(i[1])
+            minor.append(i[1])
     return
 
 decide()
@@ -85,6 +86,10 @@ def trim():
         x = i.split('/')
         users[x[-3]] = x[-2]
         audios.append(users)
+    for i in minor:
+        z = i.split('/')
+        y = z[-1].split('=')
+        videos.append(y[-1])
     return
 trim()
 
@@ -95,7 +100,7 @@ The actual app
 # The home route of the project
 @app.route('/')
 def index():
-    print(audios)
+    print(videos)
     return render_template('index.html', title='Romoz')
 
 

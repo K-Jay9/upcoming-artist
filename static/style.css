@@ -5,16 +5,19 @@ body{
     flex-wrap : wrap;
     margin: 0;
 }
+.logo{
+    padding-left: 20rem;
+}
 
 .navbar-nav{
     position: relative;
     width: 100%;
-    justify-content: center;
+    justify-content: flex-end;
     margin:0 auto;
     
 }
 .nav-link{
-    padding-left: 5rem !important;
+    padding: 0 5rem !important;
 }
 .nav-link:hover{
     text-decoration: underline;
@@ -29,9 +32,16 @@ body{
     width: 60rem;
     padding-top: 0.5rem;
 }
-.audio{
+.con{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+.audios{
     padding-top: 0.5rem;
 }
-.video{
+.videos{
     padding-top: 1.5rem;
+    align-self: center;
 }
