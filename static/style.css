@@ -26,4 +26,12 @@ body{
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
+    width: 60rem;
+    padding-top: 0.5rem;
+}
+.audio{
+    padding-top: 0.5rem;
+}
+.video{
+    padding-top: 1.5rem;
 }

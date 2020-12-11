@@ -55,6 +55,8 @@ def initdb_command():
 
 audios = []
 videos = []
+result = []
+
 
 #  The function that decides whether the link is a video or an audio
 
@@ -71,19 +73,30 @@ def decide():
     for i in res:
         out = video_or_audio(i[1])
         if out == 'audio' and out != None:
-            audios.append(i[1])
+            result.append(i[1])
         elif out == 'video' and out != None:
             videos.append(i[1])
     return
+
+decide()
+def trim():
+    for i in result:
+        users = {}
+        x = i.split('/')
+        users[x[-3]] = x[-2]
+        audios.append(users)
+    return
+trim()
+
 '''
 The actual app
 '''
-decide()
 
 # The home route of the project
 @app.route('/')
 def index():
-    return render_template('index.html', title='Romoz', audios=audios, videos=videos)
+    print(audios)
+    return render_template('index.html', title='Romoz')
 
 
 # the only function that doesn't work

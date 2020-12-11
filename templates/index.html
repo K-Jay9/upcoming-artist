@@ -3,27 +3,14 @@
 
 {% block content %}
   
-  <!-- The audios section -->
-  <div class="audio">
-    <ol>
-    {% for audio in audios  %}
-      <li>
-        {{audio}}
-      </li>
-      {% endfor %}
-    </ol>
-  </div>
-  <!-- The videos section -->
+{% block video %}
 
-  <div class="video">
-    <ol>
-    {% for vid in videos  %}
-        <li>
-          {{vid}}
-        </li>
-    {% endfor %}
-    </ol>  
-  </div>
+  
+{% endblock video %}
+
+{% block audio %}
+  
+{% endblock audio %}
   <div>
       {{msg}}
   </div>
