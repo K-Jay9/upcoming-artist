@@ -2,13 +2,17 @@
 {% block content %}
   
 <div class="container con ">
+  <ol>
     {% for audio in audios  %}
         <div class="audios">
-
             {% for user, aud in audio.items()  %}
-              <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2F{{user}}%2F{{aud}}%2F" frameborder="0" ></iframe>
+              <li class="list">
+                {{ aud}}
+              </li>
+                <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2F{{user}}%2F{{aud}}%2F" frameborder="0" ></iframe>
             {% endfor %}
-        </div>
-      {% endfor %}
+          </div>
+  {% endfor %}
+    </ol>
 </div>
 {% endblock content %}

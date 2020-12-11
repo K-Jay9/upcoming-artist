@@ -4,10 +4,10 @@ body{
     min-height: 100vh;
     flex-wrap : wrap;
     margin: 0;
-    width: auto;
+    width: 100%;
 }
 .logo{
-    padding-left: 20rem;
+    padding-left: 15%;
 }
 
 .navbar-nav{
@@ -18,7 +18,7 @@ body{
     
 }
 .nav-link{
-    padding: 0 5rem !important;
+    padding: 0 2rem !important;
 }
 .nav-link:hover{
     text-decoration: underline;
@@ -45,4 +45,9 @@ body{
 .videos{
     padding-top: 1.5rem;
     align-self: center;
+}
+li{
+    font-family:cursive;
+    padding: 1.5rem 0;
+    list-style-type: square;
 }
